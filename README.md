@@ -1,16 +1,20 @@
 # Angular tree diagram
 
-### About
+## About
+
 This is a fork of the Angular 2+ Hierarchical UI module.
 https://github.com/artbelikov/angular2-tree-diagram
 
-### Preview
+## Preview
+
 <img src="http://i.imgur.com/CfQXRGm.png" width="500">
 
-### Demo
+## Demo
+
 On [gh-pages](https://artbelikov.github.io/angular2-tree-diagram/)
 
-### Features
+## Features
+
 - Drag and drop
 - Zoom and pan
 - Configurable node width/height
@@ -19,18 +23,35 @@ On [gh-pages](https://artbelikov.github.io/angular2-tree-diagram/)
 - Pure CSS relation lines
 - No dependencies
 
-### Installation
-```
+## Installation
+
+```command
 npm i angular2-tree-diagram
 ```
 
-### Usage
-- Import module in your project
+## Usage
+
+- Import module in your project. Typically this is done in app.module.ts or a sub module of this component. 
+  - The module should look similar to the following:
+  
+``` javascript
+import { TreeDiagramModule } from 'angular2-tree-diagram';
+...
+...
+imports: [
+  ...
+  ...
+  TreeDiagramModule,
+  ...
+]
+```
+
 - Use tree-diagram directive
 - Pass array of nodes and config
 - See example.json for more details
 
-### Example
+## Example
+
 ```
 <tree-diagram [data]="data"></tree-diagram>
 ...
