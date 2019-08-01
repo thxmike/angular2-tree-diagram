@@ -1,9 +1,10 @@
-import {TreeDiagramNode} from "./node.class"
+import { TreeDiagramNode } from "./node.class"
 
 export class TreeDiagramNodeMaker extends TreeDiagramNode {
-    private _isMaker = true;
 
-    public get isMaker () {
+    _isMaker = true;
+
+    public get isMaker() {
         return this._isMaker;
     }
 
