@@ -15,7 +15,7 @@ export class Tree {
         nodeHeight: 100
     };
     private paneDragging = false;
-    private paneTransform;
+    public paneTransform;
     private zoom = 1;
     private paneX = 0;
     private paneY = 0;
