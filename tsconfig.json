@@ -17,6 +17,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "angular2-tree-diagram": [
+        "dist/angular2-tree-diagram"
+      ],
+      "angular2-tree-diagram/*": [
+        "dist/angular2-tree-diagram/*"
+      ]
+    }
   }
 }
