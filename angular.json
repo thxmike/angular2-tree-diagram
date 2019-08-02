@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular2-tree-diagram": {
+    "angular2-tree-diagram-example": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "library",
@@ -13,15 +13,14 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular2-tree-diagram",
+            "outputPath": "dist/angular2-tree-diagram-example",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/app/tree/package.json"
+              "src/assets"
             ],
             "styles": [
               "src/styles.css"
@@ -51,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular2-tree-diagram:build"
+            "browserTarget": "angular2-tree-diagram-example:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular2-tree-diagram:build:production"
+              "browserTarget": "angular2-tree-diagram-example:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular2-tree-diagram:build"
+            "browserTarget": "angular2-tree-diagram-example:build"
           }
         },
         "test": {
@@ -96,7 +95,7 @@
         }
       }
     },
-    "angular2-tree-diagram-e2e": {
+    "angular2-tree-diagram-example-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -104,11 +103,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular2-tree-diagram:serve"
+            "devServerTarget": "angular2-tree-diagram-example:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular2-tree-diagram:serve:production"
+              "devServerTarget": "angular2-tree-diagram-example:serve:production"
             }
           }
         },
