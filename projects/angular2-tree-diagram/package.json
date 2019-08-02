@@ -1,8 +1,19 @@
 {
   "name": "angular2-tree-diagram",
-  "version": "0.0.1",
-  "peerDependencies": {
-    "@angular/common": "^8.2.0",
-    "@angular/core": "^8.2.0"
-  }
+  "version": "1.0.8",
+  "description": "This is a fork of https://github.com/artbelikov/angular2-tree-diagram, which provides hierarchial relationships in a UI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Artyom Belikov / Edits: Michael Rivera",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thxmike/angular2-tree-diagram.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thxmike/angular2-tree-diagram/issues"
+  },
+  "homepage": "https://github.com/thxmike/angular2-tree-diagram#readme"
 }

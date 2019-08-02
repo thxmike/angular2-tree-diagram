@@ -6,7 +6,7 @@
     "angular2-tree-diagram-example": {
       "root": "",
       "sourceRoot": "src",
-      "projectType": "library",
+      "projectType": "application",
       "prefix": "app",
       "schematics": {},
       "architect": {
@@ -158,5 +158,5 @@
       }
     }
   },
-  "defaultProject": "angular2-tree-diagram"
+  "defaultProject": "angular2-tree-diagram-example"
 }

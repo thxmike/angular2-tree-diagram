@@ -1,11 +1,9 @@
-import {TreeDiagramNodesList} from './nodesList.class'
+import { TreeDiagramNodesList } from './nodesList.class';
 
 export class TreeDiagramNode {
 
-    protected _isMaker = false;
-
-    public get isMaker () {
-        return this._isMaker;
+    public get isMaker() {
+        return false;
     }
 
     public parentId: string | null;
@@ -22,42 +20,42 @@ export class TreeDiagramNode {
         if (!props.guid) {
             return;
         }
-        for (let prop in props) {
+        for (const prop in props) {
             if (props.hasOwnProperty(prop)) {
-                this[prop] = props[prop]
+                this[prop] = props[prop];
             }
         }
 
         this._toggle = false;
 
         if (config.nodeWidth) {
-            this.width = config.nodeWidth
+            this.width = config.nodeWidth;
         }
         if (config.nodeHeight) {
-            this.height = config.nodeHeight
+            this.height = config.nodeHeight;
         }
-        this.children = new Set(<string[]>props.children)
+        this.children = new Set(<string[]>props.children);
     }
 
     public get isExpanded() {
-        return this._toggle
+        return this._toggle;
     }
 
     public destroy() {
-        this.getThisNodeList().destroy(this.guid)
+        this.getThisNodeList().destroy(this.guid);
     }
 
     public hasChildren() {
-        return !!this.children.size
+        return !!this.children.size;
     }
 
     public toggle(state = !this._toggle) {
         this._toggle = state;
-        state && this.getThisNodeList().toggleSiblings(this.guid)
+        state && this.getThisNodeList().toggleSiblings(this.guid);
     }
 
     public childrenCount() {
-        return this.children.size
+        return this.children.size;
     }
 
     public isRoot() {
@@ -76,7 +74,7 @@ export class TreeDiagramNode {
         event.dataTransfer.effectAllowed = 'move';
         this.isDragging = true;
         this.toggle(false);
-        this.getThisNodeList().draggingNodeGuid = this.guid
+        this.getThisNodeList().draggingNodeGuid = this.guid;
     }
 
     public dragover(event) {
@@ -95,14 +93,14 @@ export class TreeDiagramNode {
 
     public drop(event) {
         event.preventDefault();
-        let guid = this.getThisNodeList().draggingNodeGuid;
+        const guid = this.getThisNodeList().draggingNodeGuid;
         this.getThisNodeList().transfer(guid, this.guid);
         return false;
     }
 
     public addChild() {
-        let newNodeGuid = this.getThisNodeList().newNode(this.guid);
+        const newNodeGuid = this.getThisNodeList().newNode(this.guid);
         this.children.add(newNodeGuid);
-        this.toggle(true)
+        this.toggle(true);
     }
 }

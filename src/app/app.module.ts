@@ -1,8 +1,8 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import {AppComponent} from './app.component';
-import {TreeDiagram} from './tree';
+import { AppComponent } from './app.component';
+import { TreeDiagramModule } from 'angular2-tree-diagram';
 
 @NgModule({
     declarations: [
@@ -10,7 +10,7 @@ import {TreeDiagram} from './tree';
     ],
     imports: [
         BrowserModule,
-        TreeDiagram
+        TreeDiagramModule
     ],
     providers: [],
     bootstrap: [AppComponent]

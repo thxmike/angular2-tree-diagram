@@ -1,9 +1,11 @@
-# Angular tree diagram
+# Angular tree diagram -- Do not use
 
 ## About
 
 This is a fork of the Angular 2+ Hierarchical UI module.
-https://github.com/artbelikov/angular2-tree-diagram
+https://github.com/artbelikov/angular2-tree-diagram.  
+The goal of this project is to provide a compiled version of the original project available via npm and
+to update the formatting, linting and layout based on the angular 6 library ng cli layout.
 
 ## Preview
 

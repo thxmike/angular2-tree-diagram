@@ -1,14 +1,14 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import {NodesListService} from './services/nodesList.service'
-import {DomSanitizer} from "@angular/platform-browser";
+import { TreeDiagramService } from './services/tree-diagram.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
     selector: 'tree-diagram',
-    styleUrls: ['./tree.component.scss'],
-    templateUrl: './tree.component.html',
+    styleUrls: ['./tree-diagram.component.scss'],
+    templateUrl: './tree-diagram.component.html',
 })
-export class Tree {
+export class TreeDiagramComponent {
     public nodes;
     private _config = {
         nodeWidth: 200,
@@ -21,26 +21,26 @@ export class Tree {
     private paneY = 0;
 
     constructor(
-        private nodesSrv: NodesListService,
+        private nodesSrv: TreeDiagramService,
         private sanitizer: DomSanitizer
     ) {
 
     }
 
     @Input() set data(_data: { config: any, json: any[] }) {
-        if (!_data || !Array.isArray(_data.json)) return;
+        if (!_data || !Array.isArray(_data.json)) { return; }
         if (typeof _data.config === 'object') {
-            this._config = Object.assign(this._config, _data.config)
+            this._config = Object.assign(this._config, _data.config);
         }
         this.nodes = this.nodesSrv.loadNodes(_data.json, this._config);
     }
 
     public get nodeMaker() {
-        return this.nodesSrv.makerNode()
+        return this.nodesSrv.makerNode();
     }
 
     public newNode() {
-        this.nodesSrv.newNode()
+        this.nodesSrv.newNode();
     }
 
     public onmousedown(event) {
@@ -49,23 +49,23 @@ export class Tree {
 
     public onmousemove(event) {
         if (this.paneDragging) {
-            let {movementX, movementY} = event;
+            const { movementX, movementY } = event;
             this.paneX += movementX;
             this.paneY += movementY;
-            this.makeTransform()
+            this.makeTransform();
         }
     }
 
     public onmouseup() {
-        this.paneDragging = false
+        this.paneDragging = false;
     }
 
     public makeTransform() {
-        this.paneTransform = this.sanitizer.bypassSecurityTrustStyle(`translate(${this.paneX}px, ${this.paneY}px) scale(${this.zoom})`)
+        this.paneTransform = this.sanitizer.bypassSecurityTrustStyle(`translate(${this.paneX}px, ${this.paneY}px) scale(${this.zoom})`);
     }
 
     public preventMouse(event) {
-        event.stopPropagation()
+        event.stopPropagation();
     }
 
     public onmousewheel(event) {
@@ -74,7 +74,7 @@ export class Tree {
         delta = event.detail || event.wheelDelta;
         this.zoom += delta / 1000 / 2;
         this.zoom = Math.min(Math.max(this.zoom, 0.2), 3);
-        this.makeTransform()
+        this.makeTransform();
     }
 
 }

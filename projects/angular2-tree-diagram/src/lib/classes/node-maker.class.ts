@@ -1,16 +1,14 @@
-import { TreeDiagramNode } from "./node.class"
+import { TreeDiagramNode } from './node.class';
 
 export class TreeDiagramNodeMaker extends TreeDiagramNode {
 
-    _isMaker = true;
-
     public get isMaker() {
-        return this._isMaker;
+        return true;
     }
 
     public drop(event) {
         event.preventDefault();
-        let guid = this.getThisNodeList().draggingNodeGuid;
+        const guid = this.getThisNodeList().draggingNodeGuid;
         this.getThisNodeList().rootNode(guid);
         this.displayName = 'New node';
         return false;
@@ -18,20 +16,20 @@ export class TreeDiagramNodeMaker extends TreeDiagramNode {
 
     public dragenter(event) {
         event.dataTransfer.dropEffect = 'move';
-        let guid = this.getThisNodeList().draggingNodeGuid;
-        let node = this.getThisNodeList().getNode(guid);
+        const guid = this.getThisNodeList().draggingNodeGuid;
+        const node = this.getThisNodeList().getNode(guid);
         if (node.parentId) {
-            this.displayName = 'Root'
+            this.displayName = 'Root';
         }
     }
 
     public dragover(event) {
         event.preventDefault();
-        let guid = this.getThisNodeList().draggingNodeGuid;
-        let node = this.getThisNodeList().getNode(guid);
+        const guid = this.getThisNodeList().draggingNodeGuid;
+        const node = this.getThisNodeList().getNode(guid);
         if (!this.isDragging && node.parentId) {
             this.isDragover = true;
-            event.dataTransfer.dropEffect = 'move'
+            event.dataTransfer.dropEffect = 'move';
         }
         return false;
     }
