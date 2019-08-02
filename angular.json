@@ -6,7 +6,7 @@
     "angular2-tree-diagram": {
       "root": "",
       "sourceRoot": "src",
-      "projectType": "application",
+      "projectType": "library",
       "prefix": "app",
       "schematics": {},
       "architect": {
